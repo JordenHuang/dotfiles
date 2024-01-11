@@ -8,6 +8,7 @@ local nvim_toggleterm = {
         require("toggleterm").setup({
             size = 12,
             open_mapping = "<leader>m",
+            insert_mappings = false,
             hide_numbers = true,
 
             -- make terminal background darker

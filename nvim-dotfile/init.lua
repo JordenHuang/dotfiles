@@ -20,9 +20,12 @@ local my_options = {
     splitbelow = true,
     splitright = true,
     
+    encoding = "utf-8",
 	clipboard = "unnamedplus",
     
     virtualedit = "block",
+
+    completeopt = { "menu", "menuone", "noselect" },
 
     inccommand = "split",
 

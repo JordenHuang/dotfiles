@@ -30,6 +30,9 @@ vim.keymap.set("n", "<A-k>", ":m -2<CR>==", opts("Move text down"))
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
+-- Window easily navigation
+vim.keymap.set("n", "<leader>w", "<C-w><C-w>", opts("Navigation of windows"))
+
 
 -- Nvim-tree keymap
 --local api = require("nvim-tree.api")
@@ -40,6 +43,7 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Open nvim-tree"))
 -- Nvim-telescope keymap
 vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>", opts("Telescope find file"))
 vim.keymap.set('n', '<leader>fb', ":Telescope buffers initial_mode=normal<CR>", opts("Telescope buffers"))
+vim.keymap.set('n', '<leader>fl', ":Telescope live_grep<CR>", opts("Telescope live grep"))
 vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", opts("Telescope help tags"))
 vim.keymap.set('n', '<leader>fk', ":Telescope keymaps initial_mode=normal<CR>", opts("Telescope show keymaps"))
 
@@ -57,6 +61,7 @@ function _G.set_terminal_keymaps()
 
     vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts("leave terminal mode"))
     vim.keymap.set("t", "kj", "<C-\\><C-n>",    opts("leave terminal mode"))
+    vim.keymap.set("t", "<leader>w", "<C-\\><C-n><C-w><C-w>",    opts("navigation of windows"))
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
