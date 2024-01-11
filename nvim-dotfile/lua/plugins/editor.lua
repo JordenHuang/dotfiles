@@ -14,16 +14,42 @@ local nvim_tree = {
                     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
                 end
 
+                -- my own function
+                local function info(t)
+                    -- filewrite = io.open("tempfile.txt", "a")
+                    for k, v in pairs(t) do
+                        if v then
+                            -- print(string.format("%s: %s  ", k, v))
+                            -- filewrite:write(string.format("%s: %s\n", k, v))
+                            print(t['type'])
+                        end
+                    end
+                    -- filewrite:write("\n")
+                    -- filewrite:close()
+                end
+
+                local function cr_behavior(t)
+                    if t['type'] == 'file' then 
+                        api.node.open.edit()
+                        api.tree.close()
+                    else
+                        api.node.open.edit()
+                    end
+                end
+
+
                 -- default mappings
                 -- api.config.mappings.default_on_attach(bufnr)
 
                 -- custom mappings
-                vim.keymap.set('n', "<CR>",           api.node.open.edit,         opts("Open"))
+                vim.keymap.set('n', "<CR>",           function() cr_behavior(api.tree.get_node_under_cursor()) end,         opts("Open and close nvim-tree"))
+                vim.keymap.set('n', 'o',              api.node.open.edit,         opts("Open"))
                 vim.keymap.set('n', "<Tab>",          api.node.open.preview,      opts("Open preview"))
                 vim.keymap.set('n', "v",              api.node.open.vertical,     opts("Open vertical"))
+                vim.keymap.set('n', "t",              api.node.open.tab,          opts("Open in new tab"))
                 vim.keymap.set('n', 'c',              api.tree.collapse_all,      opts("Collapse"))
                 vim.keymap.set('n', 'y',              api.fs.copy.filename,       opts("Copy File Name"))
-                vim.keymap.set('n', 'o',              api.node.open.edit,         opts("Open"))
+                vim.keymap.set('n', 'i',              function() api.node.show_info_popup() info(api.tree.get_node_under_cursor()) end,   opts("Show node info"))
                 vim.keymap.set('n', '<',              api.tree.change_root_to_parent,       opts("Up"))
                 vim.keymap.set('n', '>',              api.tree.change_root_to_node,         opts("CD"))
 

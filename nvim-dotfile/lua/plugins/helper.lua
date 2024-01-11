@@ -3,7 +3,7 @@ local which_key = {
     event = "VeryLazy",
     init = function()
         vim.o.timeout = true
-        vim.o.timeoutlen = 700
+        vim.o.timeoutlen = 1250
     end,
     opts = {
         -- your configuration comes here
@@ -13,6 +13,7 @@ local which_key = {
 }
 
 
+-- telescope path display
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "TelescopeResults",
     callback = function(ctx)
@@ -82,9 +83,10 @@ local nvim_cmp = {
                 }),
                 ['<CR>'] = cmp.mapping({
                     i = function(fallback)
-                        if cmp.visible() then
+                        local entry = cmp.get_selected_entry()
+                        if cmp.visible() and entry ~= nil then
                             cmp.confirm({ 
-                                select = true,
+                                select = false,
                                 behavior = cmp.ConfirmBehavior.Insert
                             })
                         else
@@ -110,10 +112,7 @@ local nvim_cmp = {
                 -- ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
                 -- ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
             }),
-            --["<CR>"] = cmp.mapping.confirm ({ 
-            --    select = true,
-            --    behavior = cmp.ConfirmBehavior.Insert
-            --}),
+
             sources = {
                 { name = "buffer" },
                 { name = 'path' },
@@ -123,8 +122,6 @@ local nvim_cmp = {
             --     behavior = cmp.ConfirmBehavior.Replace,
             --     select = false,
             -- },
-
-
         })
 
         -- Use buffer source for '/'.
