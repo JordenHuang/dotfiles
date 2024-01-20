@@ -84,8 +84,8 @@ beautiful.init(gfs.get_configuration_dir() .. "themes/theme.lua")
 -- ===== Layouts =====
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -116,6 +116,29 @@ require("keys")
 
 -- ===== Signals =====
 -- {{{
+-- Border radius
+client.connect_signal("manage", function (c)
+    if not c.fullscreen and not c.maximized then
+        c.shape = function(cr,w,h)
+            gears.shape.rounded_rect(cr, w, h, beautiful.border_radius)
+        end
+    end
+    -- Fullscreen and maximized clients should not have rounded corners
+    local function no_round_corners(c)
+        if c.fullscreen or c.maximized then
+            c.shape = gears.shape.rectangle
+        else
+            c.shape = function(cr,w,h)
+                gears.shape.rounded_rect(cr, w, h, beautiful.border_radius)
+            end
+        end
+    end
+
+    client.connect_signal("property::fullscreen", no_round_corners)
+    client.connect_signal("property::maximized", no_round_corners)
+end)
+
+
 -- Border color
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
@@ -170,8 +193,11 @@ require("helpers.restore_floating_clients")
 local floating_client_placement = function(c)
     -- If the layout is floating or there are no other visible
     -- clients, center client
+    
+    -- if layout is not floating
     if awful.layout.get(mouse.screen) ~= awful.layout.suit.floating or #mouse.screen.clients == 1 then
         return awful.placement.centered(c)--, { honor_padding = true, honor_workarea = true })
+    -- or if layout is floating
     else
         local p = awful.placement.no_overlap + awful.placement.no_offscreen
         return p(c, { honor_padding = true, honor_workarea = true, margins = beautiful.useless_gap * 2 })
@@ -250,4 +276,6 @@ awful.rules.rules = {
         }
     },
 }
+
+
 -- }}}

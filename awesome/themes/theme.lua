@@ -4,6 +4,7 @@
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
+local awful = require("awful")
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
@@ -103,6 +104,14 @@ theme.wibar_border_radius = dpi(0)
 
 
 -- ===== Taglist =====
+theme.taglist_layout        = {
+    -- awful.layout.layouts[1], 
+    awful.layout.suit.tile,
+    awful.layout.suit.tile,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+    awful.layout.suit.floating,
+}
 theme.taglist_text_font     = theme.wibar_icon_font
 theme.taglist_text_empty    = { " 󱓻 ", " 󱓻 ", " 󱓻 ", " 󱓻 ", " 󱓻 " }
 theme.taglist_text_occupied = { "", "", "", "", "" }

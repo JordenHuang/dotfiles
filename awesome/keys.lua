@@ -19,7 +19,7 @@ local user_colors = require("user").colors
 local modkey = user_keys.modkey
 
 -- TODO: add resize client with keyboard functionalities
--- TODO: add modkey+shift+q for close client
+
 
 -- ===== Mouse bindings =====
 -- {{{
@@ -87,7 +87,7 @@ globalkeys = gears.table.join(
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "client"}),
+        {description = "go back last client", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(user_apps.terminal) end,
@@ -110,7 +110,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
         {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-        {description = "select next", group = "layout"}),
+        {description = "select next layout", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
         {description = "select previous", group = "layout"}),
 
@@ -166,7 +166,7 @@ clientkeys = gears.table.join(
               {description = "toggle keep on top", group = "client"}),
 	--- Center client
 	awful.key({ modkey            }, "c",
-        function()
+        function(c)
             awful.placement.centered(c, { honor_workarea = true, honor_padding = true })
         end,
         {description = "centered a client", group = "client"}),
@@ -194,7 +194,25 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+
+    -- Resize clint window to initial size
+    awful.key({modkey,            }, "i",
+        function (c) 
+            local g = c.screen.geometry
+            -- if the layout is floating, or the client is in floating mode
+            if (awful.layout.get(mouse.screen) == awful.layout.suit.floating or c.layout == floating) 
+                and not c.maximized and not c.fullscreen then
+                c:geometry({
+                    x = g.width / 6,
+                    y = g.height / 6,
+                    width = g.width / 1.5,
+                    height = g.height / 1.5
+                })
+                awful.placement.centered(c)
+            end
+        end,
+        {description = "resize floating window to initial size", group = "client"})
 )
 
 

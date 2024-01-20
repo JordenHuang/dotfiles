@@ -85,11 +85,22 @@ local tasklist_buttons = gears.table.join(
 )
 
 -- Add to every screen
+-- require("desktop.widgets.tags")
 awful.screen.connect_for_each_screen(
     function(s)
 
         -- Each screen has its own tag table.
-        awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
+        awful.tag(
+            { "1", "2", "3", "4", "5" },
+            s,
+            {
+                awful.layout.layouts[1], 
+                awful.layout.suit.tile,
+                awful.layout.suit.floating,
+                awful.layout.suit.floating,
+                awful.layout.suit.floating,
+            }
+        )
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
