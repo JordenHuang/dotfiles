@@ -49,6 +49,7 @@ local nvim_tree = {
                 vim.keymap.set('n', "t",              api.node.open.tab,          opts("Open in new tab"))
                 vim.keymap.set('n', 'c',              api.tree.collapse_all,      opts("Collapse"))
                 vim.keymap.set('n', 'y',              api.fs.copy.filename,       opts("Copy File Name"))
+                vim.keymap.set('n', 'r',              api.tree.reload,            opts("Show node info"))
                 vim.keymap.set('n', 'i',              function() api.node.show_info_popup() info(api.tree.get_node_under_cursor()) end,   opts("Show node info"))
                 vim.keymap.set('n', '<',              api.tree.change_root_to_parent,       opts("Up"))
                 vim.keymap.set('n', '>',              api.tree.change_root_to_node,         opts("CD"))

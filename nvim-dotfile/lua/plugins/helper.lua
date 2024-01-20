@@ -61,6 +61,10 @@ local nvim_cmp = {
 
     config = function()
         local cmp = require("cmp")
+        local confirm_opts = {
+            select = true,
+            behavior = cmp.ConfirmBehavior.Insert,
+        }
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
                 ["<Tab>"] = cmp.mapping({
@@ -72,7 +76,15 @@ local nvim_cmp = {
                     c = cmp.mapping.select_prev_item(),
                 }),
                 ["<Esc>"] = cmp.mapping({
-                    i = cmp.mapping.abort(),
+                    i = function(fallback)
+                        local entry = cmp.get_active_entry()
+                        if cmp.visible() and entry ~= nil then
+                            cmp.abort()
+                        else 
+                            fallback()
+                        end
+                    end,
+
                     c = function()
                         if cmp.visible() then
                             cmp.close()
@@ -83,24 +95,19 @@ local nvim_cmp = {
                 }),
                 ['<CR>'] = cmp.mapping({
                     i = function(fallback)
-                        local entry = cmp.get_selected_entry()
+                        local entry = cmp.get_active_entry()
+                        -- local entries = cmp.get_entries()
                         if cmp.visible() and entry ~= nil then
-                            cmp.confirm({ 
-                                select = false,
-                                behavior = cmp.ConfirmBehavior.Insert
-                            })
+                            cmp.confirm(confirm_opts)
                         else
                             fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
                         end
                     end,
                     c = function(fallback)
-                        local entry = cmp.get_selected_entry()
+                        local entry = cmp.get_active_entry()
                         -- print(entry)
                         if cmp.visible() and entry ~= nil then
-                            cmp.confirm({ 
-                                select = true,
-                                behavior = cmp.ConfirmBehavior.Insert
-                            })
+                            cmp.confirm(confirm_opts)
                         else
                             fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
                         end
@@ -118,10 +125,6 @@ local nvim_cmp = {
                 { name = 'path' },
                 -- { name = "cmdline" },
             },
-            -- confirm_opts = {
-            --     behavior = cmp.ConfirmBehavior.Replace,
-            --     select = false,
-            -- },
         })
 
         -- Use buffer source for '/'.

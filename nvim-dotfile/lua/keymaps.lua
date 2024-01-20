@@ -1,3 +1,5 @@
+-- TODO:
+-- 1. Telescope: current buffer fuzzy find
 
 -- Modes
 --   normal_mode = "n",
@@ -21,6 +23,8 @@ vim.g.mapleader = ","
 -- clear search highlight (<CR> means carriage return)
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", opts("Clear search highlight"))
 
+-- Quick exit INSERT mode
+vim.keymap.set("i", "kj", "<Esc>", opts("Exit insert mode"))
 
 -- Move text up and down (<A> means Alt key)
 vim.keymap.set("n", "<A-j>", ":m +1<CR>==", opts("Move text up"))
@@ -32,6 +36,16 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- Window easily navigation
 vim.keymap.set("n", "<leader>w", "<C-w><C-w>", opts("Navigation of windows"))
+vim.keymap.set("n", "<leader>W", "<C-w>W",     opts("Navigate to last window"))
+
+-- Shortcut for typing ":w" to save file
+vim.keymap.set("n", "<C-s>", ":w<CR>", opts("Save file"))
+
+-- Tabs nevigation
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", opts("Navigation of tabs"))
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", opts("Navigate to last tab"))
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("Close tab"))
+
 
 
 -- Nvim-tree keymap
