@@ -22,6 +22,54 @@ user.keys = {
 }
 
 
+--[[
+user.colors = {
+    background    = "#fdfdfd",
+    foreground    = "#000000",
+    cursorcolor   = "#000000",
+    black         = "#242424",
+    light_black   = "#666666",
+    red           = "#c20a0a",
+    light_red     = "#d74242",
+    green         = "#38c20a",
+    light_green   = "#67d742",
+    yellow        = "#da730b",
+    light_yellow  = "#e28c36",
+    blue          = "#0a66c2",
+    light_blue    = "#368ce2",
+    magenta       = "#733fa6",
+    light_magenta = "#9b36e2",
+    cyan          = "#0a94c2",
+    light_cyan    = "#36b7e2",
+    white         = "#cdcdcd",
+    light_white   = "#eaeaea",
+}
+]]
+user.colors = {
+    background    = "#fdfdfd",
+    foreground    = "#000000",
+    cursorcolor   = "#000000",
+    black         = "#242424",
+    light_black   = "#666666",
+    red           = "#c20a0a",
+    light_red     = "#e06c6c",
+    green         = "#38c20a",
+    light_green   = "#89e06c",
+    yellow        = "#da730b",
+    light_yellow  = "#e9a663",
+    blue          = "#0a66c2",
+    light_blue    = "#63a6e9",
+    magenta       = "#733fa6",
+    light_magenta = "#b78fef",
+    cyan          = "#0a94c2",
+    light_cyan    = "#63c7e9",
+    white         = "#cdcdcd",
+    light_white   = "#eaeaea",
+}
+
+return user
+--[[
+--original
 user.colors = {
     background    = "#fdfdfd",
     foreground    = "#000000",
@@ -43,9 +91,54 @@ user.colors = {
     white         = "#cdcdcd",
     light_white   = "#eaeaea",
 }
+--------------------------------------
+===== Version 2 =====
+--------------------------------------------
+
+# my color (hsl)
+! special
+background
+foreground
+cursorcolor
+"#fdfdfd"
+"#000000"
+"#000000"
+#191919
+
+! black
+"#242424"
+"#666666"
+
+! red
+0, 90, 40       #c20a0a
+0, 65, 65       #e06c6c #d74242  (l 各降10)
+
+! green
+105, 90, 40     #38c20a
+105, 65, 65     #89e06c #67d742
+
+! yellow
+30, 90, 45      #da730b
+30, 75, 65      #e9a663 #e28c36
+
+! blue
+210, 90, 40     #0a66c2
+210, 75, 65     #63a6e9 #368ce2
+
+! magenta
+270, 45, 45     #733fa6
+265, 75, 75     #B78FEF #9b36e2
+
+! cyan
+195, 90, 40     #0a94c2
+195, 75, 65     #63c7e9 #36b7e2
+
+! white
+"#cdcdcd"
+"#eaeaea"
+--]]
 
 
-return user
 
 
 -- colors' HSL and RGB value
@@ -89,3 +182,19 @@ return user
 "#eaeaea"
 
 ]]--
+
+
+--[[ looks good
+$background: #1A1B26;
+$background-alt: #16161E;
+$background-alt2: #1E202E;
+$foreground: #a9b1d6;
+$red: #F7768E;
+$yellow: #E0AF68;
+$orange: #FF9E64;
+$green: #9ECE6A;
+$blue: #7AA2F7;
+$blue2: #88AFFF;
+$magenta: #BB9AF7;
+$cyan: #73DACA;
+]]
