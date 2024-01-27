@@ -1,0 +1,175 @@
+{
+    "python.defaultInterpreterPath": "C:\\Program Files\\Python310\\python.exe",
+    "files.encoding": "utf8",
+    "editor.lineNumbers": "relative",
+    // per-language configurations
+    "files.autoGuessEncoding": true,
+    "[python]": {
+        "files.encoding": "utf8",
+        "files.autoGuessEncoding": true,
+        "editor.formatOnType": true
+    },
+    "[c]": {
+        "files.encoding": "cp950",
+        "files.autoGuessEncoding": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    // by me
+    "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": false,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#a9dc7660",
+    "vim.highlightedyank.duration": 350,
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false,
+        "<C-z>": false,
+        "<C-a>": false,
+        "<C-s>": false,
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-w>": false,
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        // For clear highlight
+        {
+            "before": [
+                "<leader>",
+                "n",
+                "h"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        // For showing registers
+        {
+            "before": [
+                "<leader>",
+                "'"
+            ],
+            "commands": [
+                ":reg"
+            ]
+        },
+        // For easy nevigate tabs
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "n"
+            ],
+            "commands": [
+                ":tabnext"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "p"
+            ],
+            "commands": [
+                ":tabprevious"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+    "editor.accessibilitySupport": "off",
+    "code-runner.languageIdToFileExtensionMap": {
+        "bat": ".bat",
+        "powershell": ".ps1",
+        "typescript": ".ts"
+    },
+    "terminal.integrated.tabFocusMode": false,
+    "terminal.integrated.defaultProfile.linux": "",
+    "code-runner.runInTerminal": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.unicodeHighlight.allowedCharacters": {
+        "️": true
+    },
+    "markdown-pdf.breaks": true,
+    "markdown-pdf.displayHeaderFooter": false,
+    "terminal.integrated.cursorStyleInactive": "none",
+    "redhat.telemetry.enabled": false,
+    "terminal.integrated.scrollback": 10000,
+    "workbench.colorTheme": "Catppuccin Latte",
+    "catppuccin.accentColor": "teal",
+    "catppuccin.italicKeywords": false,
+    "catppuccin.italicComments": false,
+    "catppuccin.workbenchMode": "default",
+    "catppuccin.colorOverrides": {
+        "latte": {
+            "base": "#ffffff",
+            "mantle": "#fafafa",
+            "crust": "#e2e2e2"
+        }
+    },
+    "catppuccin.customUIColors": {
+        "all": {
+            "activityBar.background": "#3f3f3f",
+            "statusBar.background": "#007acc",
+            "statusBar.foreground": "#ffffff",
+            "minimap.background": "#ffffff",
+            "editorCursor.foreground": "#728FAB",
+            "statusBarItem.remoteBackground": "green",
+            "editor.lineHighlightBackground": "#ffffff",
+            "editor.lineHighlightBorder": "#f0f0f0",
+            "input.background": "#fafafa",
+            "selection.background": "#81a1c1",
+            "editor.selectionBackground": "#def1cb",
+            ///*
+            "editorWarning.foreground": "#ff0000",
+            "editorError.foreground": "#ff0000",
+            "minimap.warningHighlight": "#ff0000",
+            "minimap.errorHighlight": "#ff0000",
+            "list.errorForeground": "#ff0000",
+            "list.warningForeground": "#ff0000"
+            //*/
+        }
+    },
+    "window.zoomLevel": 1,
+    "editor.cursorBlinking": "solid",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    // "files.autoSave": "afterDelay",
+    // "files.autoSaveDelay": 2000,
+}
