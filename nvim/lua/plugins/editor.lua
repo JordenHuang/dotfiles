@@ -75,7 +75,7 @@ local nvim_treesitter = {
     build = ":TSUpdate",
     config = function () 
         local install = require("nvim-treesitter.install")
-        install.compilers = { "clang" }
+        install.compilers = { "clang", "gcc" }
 
         local configs = require("nvim-treesitter.configs")
 
