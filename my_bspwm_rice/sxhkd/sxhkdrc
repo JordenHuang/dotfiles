@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	alacritty # urxvt
+	gnome-terminal #alacritty # urxvt
 
 # program launcher, ( @ means action when the key is released )
 super + @space
-	rofi # dmenu_run
+	rofi -show run # dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
