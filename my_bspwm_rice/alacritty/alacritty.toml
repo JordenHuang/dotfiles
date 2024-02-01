@@ -23,7 +23,7 @@ normal = { family = "JetBrainsMono Nerd Font Mono", style = "normal" }
 # If the family is not specified, 
 # "bold, italic, bold_italic" font family will 
 # fall back to the value specified for the normal font.
-size = 14
+size = 12
 
 [keyboard]
 bindings = [

@@ -2,9 +2,9 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-feh --bg-fill 
-
+feh --bg-fill ~/.config/dotfiles/background-images/house.png &
 $HOME/.config/polybar/launch.sh &
+picom &
 
 #rofi &
 
