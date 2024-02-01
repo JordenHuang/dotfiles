@@ -1,0 +1,31 @@
+import = [ 
+    "~/.config/alacritty/catppuccin-latte.toml"
+]
+
+[shell]
+program = "/bin/bash"
+
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+class = { instance = "Alacritty", general = "Alacritty" } # default value
+
+[scrolling] # all of them are default value, I just write them again
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "normal" }
+# If the family is not specified, 
+# "bold, italic, bold_italic" font family will 
+# fall back to the value specified for the normal font.
+size = 14
+
+[keyboard]
+bindings = [
+{ key = "Return", mods = "Super|Shift", action = "SpawnNewInstance" },
+]

@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	gnome-terminal #alacritty # urxvt
+	alacritty  #gnome-terminal #urxvt
 
 # program launcher, ( @ means action when the key is released )
 super + @space

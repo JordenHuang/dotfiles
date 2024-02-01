@@ -2,13 +2,11 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-#feh --bg-fill ~/Downloads/blue-sky-grass-fields-a-farmers-house-some-flower-look-up-412162321.png &
-feh --bg-fill ~/Downloads/digital-art-happy-memorable-miniature-art-golden-ratio-fake-detail-trending-pixiv-fanbox-acry-759811352.png &
-#feh --bg-fill ~/Downloads/magic-pattern-round-star-powerful-blue-and-sunlight-color-602228721.png &
+feh --bg-fill 
 
 $HOME/.config/polybar/launch.sh &
 
-rofi &
+#rofi &
 
 bspc monitor -d 1 2 3 4 5
 
