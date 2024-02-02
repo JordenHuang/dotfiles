@@ -58,34 +58,34 @@ text = "#eaeaea"
 background = "#da730b"
 
 [colors.normal]
-black   = "#242424",
-red     = "#c20a0a",
-green   = "#38c20a",
-yellow  = "#da730b",
-blue    = "#0a66c2",
-magenta = "#733fa6",
-cyan    = "#0a94c2",
-white   = "#cdcdcd",
+black   = "#242424"
+red     = "#c20a0a"
+green   = "#38c20a"
+yellow  = "#da730b"
+blue    = "#0a66c2"
+magenta = "#733fa6"
+cyan    = "#0a94c2"
+white   = "#cdcdcd"
 
 [colors.bright]
-black   = "#666666",
-red     = "#e06c6c",
-green   = "#89e06c",
-yellow  = "#e9a663",
-blue    = "#63a6e9",
-magenta = "#b78fef",
-cyan    = "#63c7e9",
-white   = "#eaeaea",
+black   = "#666666"
+red     = "#e06c6c"
+green   = "#89e06c"
+yellow  = "#e9a663"
+blue    = "#63a6e9"
+magenta = "#b78fef"
+cyan    = "#63c7e9"
+white   = "#eaeaea"
 
 [colors.dim]
-black   = "#242424",
-red     = "#c20a0a",
-green   = "#38c20a",
-yellow  = "#da730b",
-blue    = "#0a66c2",
-magenta = "#733fa6",
-cyan    = "#0a94c2",
-white   = "#cdcdcd",
+black   = "#242424"
+red     = "#c20a0a"
+green   = "#38c20a"
+yellow  = "#da730b"
+blue    = "#0a66c2"
+magenta = "#733fa6"
+cyan    = "#0a94c2"
+white   = "#cdcdcd"
 
 [[colors.indexed_colors]]
 index = 16

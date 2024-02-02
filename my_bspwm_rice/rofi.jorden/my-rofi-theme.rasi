@@ -1,23 +1,23 @@
 * {         
-    background    : #fdfdfd;
-    foreground    : #000000;
-    cursorcolor   : #000000;
-    black         : #242424;
-    light_black   : #666666;
-    red           : #c20a0a;
-    light_red     : #e06c6c;
-    green         : #38c20a;
-    light_green   : #89e06c;
-    yellow        : #da730b;
-    light_yellow  : #e9a663;
-    blue          : #0a66c2;
-    light_blue    : #63a6e9;
-    magenta       : #733fa6;
-    light_magenta : #b78fef;
-    cyan          : #0a94c2;
-    light_cyan    : #63c7e9;
-    white         : #cdcdcd;
-    light_white   : #eaeaea;
+    background: #fdfdfd;
+    foreground: #000000;
+    cursorcolor: #000000;
+    black: #242424;
+    light-black: #666666;
+    red: #c20a0a;
+    light-red: #e06c6c;
+    green: #38c20a;
+    light-green: #89e06c;
+    yellow: #da730b;
+    light-yellow: #e9a663;
+    blue: #0a66c2;
+    light-blue: #63a6e9;
+    magenta: #733fa6;
+    light-magenta: #b78fef;
+    cyan: #0a94c2;
+    light-cyan: #63c7e9;
+    white: #cdcdcd;
+    light-white: #eaeaea;
 }           
 
 // Main window
@@ -31,9 +31,9 @@ window {
     enable:           true;
     margin:           0px;
     padding:          0px;
-    border:           3px solid;
+    border:           0px solid;
     border-radius:    0px;
-    border-color:     @light_blue;
+    border-color:     @light-blue;
     cursor:           "default";
 }
 
@@ -50,7 +50,7 @@ inputbar {
 }
 
 prompt {
-    padding:          6px;
+    //padding:          6px;
     background-color: inherit;
     text-color:       inherit;
 }
@@ -72,11 +72,11 @@ entry {
     text-color:       inherit;
     cursor:           text;
     placeholder:      "Search...";
-    placeholder-color: @light_black;
+    placeholder-color: @light-black;
 }
 
 mode-switcher {
-spacing: 0;
+    spacing: 0;
 }
 
 listview {
@@ -103,7 +103,7 @@ element selected {
 
 button {
     padding: 10px;
-    background-color: @light_black;
+    background-color: @light-black;
     text-color: @white;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
@@ -115,7 +115,7 @@ button selected {
 }
 
 message {
-    background-color: @light_black;
+    background-color: @light-black;
     margin: 2px;
     padding: 2px;
     border-radius: 5px;
@@ -125,5 +125,5 @@ textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
     text-color: @blue;
-    background-color: @light_black;
+    background-color: @light-black;
 }
