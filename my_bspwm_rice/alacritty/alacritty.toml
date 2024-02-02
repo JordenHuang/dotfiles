@@ -1,5 +1,6 @@
 import = [ 
-    "~/.config/alacritty/catppuccin-latte.toml"
+    #"~/.config/alacritty/catppuccin-latte.toml"
+    "~/.config/alacritty/my-theme.toml"
 ]
 
 [shell]
@@ -24,6 +25,11 @@ normal = { family = "JetBrainsMono Nerd Font Mono", style = "normal" }
 # "bold, italic, bold_italic" font family will 
 # fall back to the value specified for the normal font.
 size = 12
+
+[mouse]
+bindings = [
+{ mouse = "Right", mods = "Control", action = "Paste" },
+]
 
 [keyboard]
 bindings = [

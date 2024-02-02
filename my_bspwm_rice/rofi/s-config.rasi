@@ -1,0 +1,21 @@
+configuration {
+    modi: "run,drun,window";
+    font: "JetBrainsMono Nerd Font Mono Normal 12";
+
+    display-drun: " Apps";
+    display-run: " Run";
+    display-window: " Windows";
+    display-Network: "󰤨 Network";
+
+    // drun setting
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    
+    // window setting
+    window-format:              "{w} · {c} · {t}";
+    
+    case-sensitive: false;
+	cycle: true;
+    show-icons: true;
+}
+
+@theme "~/.config/rofi/my-rofi-theme"
