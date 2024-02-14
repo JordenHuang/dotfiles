@@ -13,12 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 
 
+local plugin_specs = require("plugins.plugins-init")
+
+
 local lazy_nvim_config = {
     install = {
         -- install missing plugins on startup. This doesn't increase startup time.
         missing = true,
         -- try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "catppuccin", "habamax"},
+        colorscheme = { "catppuccin", "desert"},
     },
     ui = {
         border = "rounded",
@@ -27,6 +30,6 @@ local lazy_nvim_config = {
 
 
 require("lazy").setup(
-    "plugins",
+    plugin_specs,
     lazy_nvim_config
 )

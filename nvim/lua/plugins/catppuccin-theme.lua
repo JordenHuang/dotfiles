@@ -2,16 +2,22 @@ local catppuccin_theme = {
     "catppuccin/nvim", name = "catppuccin", priority = 1000,
     config = function()
         require("catppuccin").setup {
+            flavour = "latte", -- latte, frappe, macchiato, mocha
+            background = { -- :h background
+                light = "latte",
+                dark = "frappe",
+            },
             color_overrides = {
                 all = {
-                    text = "#000000"
                 },
                 latte = {
+                    text = "#000000",
                     base = "#fbfbfb",
                     mantle = "#ededed",
                     crust = "#d0d0d0",
+                    blue = "#6390e9",
                 },
-                -- frappe = {},
+                -- frappe = {}, -- this is a good colorscheme
                 -- macchiato = {},
                 -- mocha = {},
             },
@@ -24,7 +30,8 @@ local catppuccin_theme = {
                 }
             end
         }
-        vim.cmd.colorscheme("catppuccin-latte")
+
+        vim.cmd.colorscheme("catppuccin")
     end
 }
 

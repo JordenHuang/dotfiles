@@ -60,6 +60,13 @@ vim.keymap.set('n', '<leader>fb', ":Telescope buffers initial_mode=normal<CR>", 
 vim.keymap.set('n', '<leader>fl', ":Telescope live_grep<CR>", opts("Telescope live grep"))
 vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", opts("Telescope help tags"))
 vim.keymap.set('n', '<leader>fk', ":Telescope keymaps initial_mode=normal<CR>", opts("Telescope show keymaps"))
+vim.keymap.set('n', '<leader>fm', ":Telescope marks initial_mode=normal<CR>", opts("Telescope show marks"))
+
+
+
+-- open file_browser with the path of the current buffer
+vim.keymap.set("n", "<leader>bb", ":Oil .<CR>", opts("Open oil file browser"))
+vim.keymap.set("n", "<leader>bd", ":lua require('oil').discard_all_changes()<CR>", opts("Oil discard all changes"))
 
 
 

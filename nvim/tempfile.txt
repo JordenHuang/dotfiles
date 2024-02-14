@@ -1,0 +1,39 @@
+name: lua
+watcher: table: 0x01ec36513878
+parent: table: 0x01ec36768ae8
+fs_stat: table: 0x01ec36512bd8
+absolute_path: C:\Users\JordenHuang\AppData\Local\nvim\lua
+has_children: true
+git_status: table: 0x01ec365141c8
+type: directory
+nodes: table: 0x01ec365131b8
+name: keymaps.lua
+absolute_path: C:\Users\JordenHuang\AppData\Local\nvim\lua\keymaps.lua
+fs_stat: table: 0x01ec37a7d0e8
+parent: table: 0x01ec365128f0
+extension: lua
+git_status: table: 0x01ec37a7d720
+type: file
+extension: lua
+name: init.lua
+type: file
+git_status: table: 0x01cdcb4f8830
+absolute_path: C:\Users\JordenHuang\AppData\Local\nvim\init.lua
+parent: table: 0x01cdcb4f2ca0
+fs_stat: table: 0x01cdcb4f81e8
+extension: json
+name: lazy-lock.json
+type: file
+git_status: table: 0x01cdcb5e8980
+absolute_path: C:\Users\JordenHuang\AppData\Local\nvim\lazy-lock.json
+parent: table: 0x01cdcb4f2ca0
+fs_stat: table: 0x01cdcb5e65f8
+name: lua
+nodes: table: 0x01cdcb4f9c60
+type: directory
+watcher: table: 0x01cdcb4fab80
+has_children: true
+git_status: table: 0x01cdcb651150
+absolute_path: C:\Users\JordenHuang\AppData\Local\nvim\lua
+parent: table: 0x01cdcb4f2ca0
+fs_stat: table: 0x01cdcaeb5c20
