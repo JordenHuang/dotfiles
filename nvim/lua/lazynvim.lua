@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-
-local plugin_specs = require("plugins.plugins-init")
+-- Load plugin specs
+local plugin_specs = require("plugin")
 
 
 local lazy_nvim_config = {

@@ -52,7 +52,9 @@ local nvim_tree = {
                 vim.keymap.set('n', 'r',              api.tree.reload,            opts("Show node info"))
                 vim.keymap.set('n', 'i',              function() api.node.show_info_popup() info(api.tree.get_node_under_cursor()) end,   opts("Show node info"))
                 vim.keymap.set('n', '<',              api.tree.change_root_to_parent,       opts("Up"))
+                vim.keymap.set('n', 'h',              api.tree.change_root_to_parent,       opts("Up"))
                 vim.keymap.set('n', '>',              api.tree.change_root_to_node,         opts("CD"))
+                vim.keymap.set('n', 'l',              api.tree.change_root_to_node,         opts("CD"))
 
 
                 vim.keymap.set('n', '<C-h>',          ":h nvim-tree <CR>",        opts("Help"))

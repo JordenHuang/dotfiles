@@ -35,17 +35,17 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- Window easily navigation
-vim.keymap.set("n", "<leader>w", "<C-w><C-w>", opts("Navigation of windows"))
-vim.keymap.set("n", "<leader>W", "<C-w>W",     opts("Navigate to last window"))
+vim.keymap.set("n", "<leader>w", "<C-w>", opts("Navigation of windows, need add h/j/k/l behind"))
 
 -- Shortcut for typing ":w" to save file
 vim.keymap.set("n", "<C-s>", ":w<CR>", opts("Save file"))
 
 -- Tabs nevigation
-vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", opts("Navigation of tabs"))
-vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", opts("Navigate to last tab"))
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("Close tab"))
 
+-- Set background
+vim.keymap.set("n", "<leader>cl", ":set background=light<CR>:1 sleep<CR>", opts("Set background light"))
+vim.keymap.set("n", "<leader>cd", ":set background=dark<CR>:1 sleep<CR>", opts("Set background dark"))
 
 
 -- Nvim-tree keymap
@@ -61,12 +61,13 @@ vim.keymap.set('n', '<leader>fl', ":Telescope live_grep<CR>", opts("Telescope li
 vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", opts("Telescope help tags"))
 vim.keymap.set('n', '<leader>fk', ":Telescope keymaps initial_mode=normal<CR>", opts("Telescope show keymaps"))
 vim.keymap.set('n', '<leader>fm', ":Telescope marks initial_mode=normal<CR>", opts("Telescope show marks"))
+vim.keymap.set('n', '<leader>fo', ":Telescope oldfiles initial_mode=normal<CR>", opts("Telescope show old files"))
 
 
 
 -- open file_browser with the path of the current buffer
-vim.keymap.set("n", "<leader>bb", ":Oil .<CR>", opts("Open oil file browser"))
-vim.keymap.set("n", "<leader>bd", ":lua require('oil').discard_all_changes()<CR>", opts("Oil discard all changes"))
+vim.keymap.set("n", "<leader>oo", ":Oil .<CR>", opts("Open oil file browser"))
+vim.keymap.set("n", "<leader>od", ":lua require('oil').discard_all_changes()<CR>", opts("Oil discard all changes"))
 
 
 
