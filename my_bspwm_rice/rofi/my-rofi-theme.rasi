@@ -1,0 +1,129 @@
+* {         
+    background: #fdfdfd;
+    foreground: #000000;
+    cursorcolor: #000000;
+    black: #242424;
+    light-black: #666666;
+    red: #c20a0a;
+    light-red: #e06c6c;
+    green: #38c20a;
+    light-green: #89e06c;
+    yellow: #da730b;
+    light-yellow: #e9a663;
+    blue: #0a66c2;
+    light-blue: #63a6e9;
+    magenta: #733fa6;
+    light-magenta: #b78fef;
+    cyan: #0a94c2;
+    light-cyan: #63c7e9;
+    white: #cdcdcd;
+    light-white: #eaeaea;
+}           
+
+// Main window
+window {
+    transparency:     "real";
+    width:            600px;
+    height:           300px;
+    background-color: @white;
+
+    // for all widgets
+    enable:           true;
+    margin:           0px;
+    padding:          0px;
+    border:           0px solid;
+    border-radius:    0px;
+    border-color:     @light-blue;
+    cursor:           "default";
+}
+
+// Main box
+mainbox {
+    background-color: @white;
+    children:         ["inputbar", "message", "listview" ];
+}
+
+inputbar {
+    border-radius:    5px;
+    background-color: transparent;
+    children:         [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+}
+
+prompt {
+    //padding:          6px;
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+textbox-prompt-colon {
+    expand:        false;
+    string:        "";
+    border:        0px solid;
+    border-radius: 3px;
+    //margin:        20px 0px 0px 20px;
+    background-color: @white;
+    text-color:       @background;
+}
+
+entry {
+    expand:           true;
+    padding:          6px;
+    background-color: inherit;
+    text-color:       inherit;
+    cursor:           text;
+    placeholder:      "Search...";
+    placeholder-color: @light-black;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+listview {
+    columns: 2;
+    lines: 5;
+    background-color: @background;
+}
+
+element {
+    padding: 5px;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color:  @cyan;
+    text-color:        @black;
+}
+
+
+button {
+    padding: 10px;
+    background-color: @light-black;
+    text-color: @white;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @background;
+  text-color: @blue;
+}
+
+message {
+    background-color: @light-black;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @light-black;
+}

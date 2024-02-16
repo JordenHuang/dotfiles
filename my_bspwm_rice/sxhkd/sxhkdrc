@@ -8,7 +8,8 @@ super + Return
 
 # program launcher, ( @ means action when the key is released )
 super + @space
-	rofi -show run # dmenu_run
+    ~/.config/rofi/launchers/type-1/launcher.sh
+    #rofi -show run # dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape

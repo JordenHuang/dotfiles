@@ -18,4 +18,5 @@ configuration {
     show-icons: true;
 }
 
-@theme "~/.config/rofi/my-rofi-theme"
+// @theme "~/.config/rofi/my-rofi-theme.rasi"
+@theme "~/.config/rofi/catppuccin-latte.rasi"
