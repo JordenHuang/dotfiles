@@ -1,6 +1,6 @@
 # background    = "#fdfdfd",
 # foreground    = "#000000",
-# cursorcolor   = "#000000",
+# cursorcolor   = "#000000", or maybe #8CB4FF
 # black         = "#242424",
 # light_black   = "#666666",
 # red           = "#c20a0a",
