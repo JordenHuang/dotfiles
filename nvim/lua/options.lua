@@ -32,6 +32,7 @@ vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
 
+
 -- Try below in Linux
 --vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20"
 -- Use below in Windows

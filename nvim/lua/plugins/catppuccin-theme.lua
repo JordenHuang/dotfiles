@@ -23,9 +23,10 @@ local catppuccin_theme = {
             },
 
             custom_highlights = function(colors)
+                local u = require("catppuccin.utils.colors")
                 return{
                     CursorLine = {
-                        bg = U.vary_color({ latte = U.lighten(C.crust, 0.70, C.base) }, U.darken(C.surface0, 0.64, C.base)),
+                        bg = u.vary_color({ latte = u.lighten(colors.crust, 0.70, colors.base) }, u.darken(colors.surface0, 0.64, colors.base)),
                     }
                 }
             end

@@ -64,3 +64,24 @@ local function getGreeting(name) local tableTime = os.date("*t")
     end
     return " " .. datetime .. "  " .. greetingsTable[greetingIndex] .. ", " .. name
 end
+
+
+
+-- Toggleterm plugin
+local function set_open_mapping()
+    if vim.o.shell == "cmd.exe" then
+        return [[<c-\>]]
+    else return "<leader>m"
+    end
+end
+local open_mapping = set_open_mapping()
+on_create = function()
+    idd = 0
+    for _, chan in pairs(vim.api.nvim_list_chans()) do
+        if chan["mode"] == "terminal" then
+            --print(chan["id"])
+            idd = chan["id"]
+        end
+    end
+    vim.fn.chansend(idd, "pwsh\n")
+end
