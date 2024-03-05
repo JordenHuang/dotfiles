@@ -11,6 +11,13 @@ vim.opt.autoindent = true
 
 vim.opt.cursorline = true
 
+vim.opt.listchars = { tab = "> ", trail = "·", nbsp = "+" }
+vim.opt.list = true
+--vim.cmd([[
+--    set listchars=tab:>\ ,trail:·,nbsp:+
+--    set list
+--]])
+
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
 
@@ -18,10 +25,10 @@ vim.opt.mouse = "a"
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-    
+
 vim.opt.encoding = "utf-8"
 vim.opt.clipboard = "unnamedplus"
-    
+
 vim.opt.virtualedit = "block"
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }

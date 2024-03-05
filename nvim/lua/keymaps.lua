@@ -34,18 +34,27 @@ vim.keymap.set("n", "<A-k>", ":m -2<CR>==", opts("Move text down"))
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
--- Window easily navigation
-vim.keymap.set("n", "<leader>w", "<C-w>", opts("Navigation of windows, need add h/j/k/l behind"))
+-- Window easy navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts("Nevigate to left(h) window"))
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts("Nevigate to lower(j) window"))
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts("Nevigate to upper(k) window"))
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts("Nevigate to right(l) window"))
+
+-- Window easy movement
+-- Maybe when not using windows terminal, I can set <A-S-h> to <C-S-h> and so on
+-- because the ctrl + shift is the windows terminal's keymap,
+-- so it doesn't work in neovim
+vim.keymap.set("n", "<A-S-h>", "<C-w>H", opts("Move window to the leftmost(H)"))
+vim.keymap.set("n", "<A-S-j>", "<C-w>J", opts("Move window to the very bottom(J)"))
+vim.keymap.set("n", "<A-S-k>", "<C-w>K", opts("Move window to the very top(K)"))
+vim.keymap.set("n", "<A-S-l>", "<C-w>L", opts("Move window to the rightmost(L)"))
+vim.keymap.set("n", "<A-S-t>", "<C-w>T", opts("Move window to the new tab"))
 
 -- Shortcut for typing ":w" to save file
 vim.keymap.set("n", "<C-s>", ":w<CR>", opts("Save file"))
 
 -- Tabs nevigation
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("Close tab"))
-
--- Set background
-vim.keymap.set("n", "<leader>cl", ":set background=light<CR>:1 sleep<CR>", opts("Set background light"))
-vim.keymap.set("n", "<leader>cd", ":set background=dark<CR>:1 sleep<CR>", opts("Set background dark"))
 
 
 -- Nvim-tree keymap
