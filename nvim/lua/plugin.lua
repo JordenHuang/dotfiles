@@ -24,6 +24,9 @@ spec("which_key")
 spec("oil_nvim")
 spec("alpha_nvim")
 
+spec("lsp.mason")
+spec("lsp.nvim_lsp")
+
 -- TODO: add cheatsheet.nvim
 
 

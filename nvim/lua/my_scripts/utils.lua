@@ -2,18 +2,20 @@ local M = {}
 
 --===== Quickfix list =====
 M.send_command = function()
-    vim.ui.input(
-        { prompt = "Command: " }, 
-        function(cmd)
-            if cmd == nil then
-                print("Empty input, abort")
-                return
-            end
-            local command = "cexpr system('" .. cmd .. "')"
-            print(":" .. command)
-            vim.cmd(command)
-        end
-    )
+    -- vim.ui.input(
+    --     { prompt = "Command: "},
+    --     function(cmd)
+    --         if cmd == nil then
+    --             print("Empty input, abort")
+    --             return
+    --         end
+    --         local command = "cexpr system('" .. cmd .. "')"
+    --         print(":" .. command)
+    --         vim.cmd(command)
+    --     end
+    -- )
+    local command = ":cexpr system('  ')<left><left><left>"
+    return command
 end
 
 M.toggle_qf = function()
@@ -43,7 +45,7 @@ M.set_background = function()
     elseif vim.o.background == "dark" then
         vim.cmd "set background=light"
     end
-    vim.cmd "1 sleep"
+    vim.cmd "2 sleep"
 end
 -- ===== end Theme =====
 
@@ -57,7 +59,8 @@ M.setup = function()
     end
 
     if M.send_command ~= nil then
-        vim.keymap.set("n", "<leader>sc", M.send_command, opts("Send command to cexpr"))
+        -- When pressing <leader>sc, execute the send_command function
+        vim.keymap.set("n", "<leader>sc", M.send_command(), opts("Send command to cexpr"))
     end
 
     if M.toggle_qf ~= nil then

@@ -8,4 +8,4 @@ require("keymaps")
 require("lazynvim")
 
 -- my scripts
-require("my_scripts.quickfix_list").setup()
+require("my_scripts.utils").setup()
