@@ -23,7 +23,7 @@ vim.opt.scrolloff = 3
 
 vim.opt.mouse = "a"
 
-vim.opt.splitbelow = true
+-- vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.encoding = "utf-8"
@@ -41,6 +41,6 @@ vim.opt.termguicolors = true
 
 
 -- Try below in Linux
---vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20"
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20"
 -- Use below in Windows
 vim.opt.guicursor = "n-v-c-i-sm:block,i-ci-ve:blinkwait700-blinkoff400-blinkon250,r-cr-o:hor20"

@@ -57,7 +57,8 @@ let mapleader = ","
 :nmap <C-s> :w<CR>
 
 
-" -- Move text up and down (<A> means Alt key) vim.keymap.set("n", "<A-j>", ":m +1<CR>==", opts("Move text up"))
+" -- Move text up and down (<A> means Alt key)
+" vim.keymap.set("n", "<A-j>", ":m +1<CR>==", opts("Move text up"))
 " vim.keymap.set("n", "<A-k>", ":m -2<CR>==", opts("Move text down"))
 " 
 " -- Shift visual selected lines up and down

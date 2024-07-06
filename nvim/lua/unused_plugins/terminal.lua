@@ -41,6 +41,28 @@ local nvim_toggleterm = {
                 },
             },
         })
+
+        local function opts(description)
+            return { desc = description, noremap = true, silent = true }
+        end
+        -- Nvim-toggleterm keymap
+        vim.keymap.set("n", "<leader>th",  ":ToggleTerm size=12 direction=horizontal name=terminal<CR>", opts("Toggleterm open horizontal"))
+        vim.keymap.set("n", "<leader>tv",  ":ToggleTerm size=60 direction=vertical name=terminal<CR>",   opts("Toggleterm open vertical"))
+        vim.keymap.set("n", "<leader>tf",  ":ToggleTerm size=20 direction=float name=terminal<CR>",      opts("Toggleterm open float"))
+        -- vim.keymap.set("n", "<leader>tn",  ":TermExec cmd='echo %' size=12 direction=horizontal name=terminal<CR>", opts("Toggletrem open second terminal horizontally"))
+        function _G.set_terminal_keymaps()
+            local function opts(desc)
+                return {desc = "Toggleterm: "..desc, buffer = 0}
+            end
+
+            vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts("leave terminal mode"))
+            vim.keymap.set("t", "kj", "<C-\\><C-n>",    opts("leave terminal mode"))
+            vim.keymap.set("t", "<leader>w", "<C-\\><C-n><C-w><C-w>",    opts("navigation of windows"))
+        end
+
+        -- if you only want these mappings for toggle term use term://*toggleterm#* instead
+        vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
     end,
 }
 

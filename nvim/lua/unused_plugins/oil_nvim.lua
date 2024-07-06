@@ -4,6 +4,13 @@ local oil = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
     config = function()
+        local function opts(description)
+            return { desc = description, noremap = true, silent = true }
+        end
+        -- open file_browser with the path of the current buffer
+        vim.keymap.set("n", "<leader>oo", ":Oil .<CR>", opts("Open oil file browser"))
+        vim.keymap.set("n", "<leader>od", ":lua require('oil').discard_all_changes()<CR>", opts("Oil discard all changes"))
+
         require("oil").setup({
             -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
             -- Set to false if you still want to use netrw.

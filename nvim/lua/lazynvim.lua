@@ -25,7 +25,7 @@ local lazy_nvim_config = {
     },
     ui = {
         border = "rounded",
-    }
+    },
 }
 
 

@@ -12,12 +12,26 @@ local nvim_lsp_config = {
 
         local lspconfig = require("lspconfig")
 
+        -- rust language server
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            filetypes = {"rust"},
+            settings = {
+                ["rust-analyzer"] = {
+                    diagnostics = {
+                        enable = true,
+                        disabled = {"unlinked-file"}
+                    }
+                }
+            }
+        })
+
         -- assembly language server
         lspconfig.asm_lsp.setup({
             capabilities = capabilities,
         })
 
-        require('lspconfig').clangd.setup({
+        lspconfig.clangd.setup({
             capabilities = capabilities,
         })
 
@@ -41,6 +55,7 @@ local nvim_lsp_config = {
                 },
             },
         })
+
 
         local function opts(description)
             return { desc = description, noremap = true, silent = true }

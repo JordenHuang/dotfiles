@@ -36,6 +36,18 @@ local nvim_telescope = {
                 wrap = true,
             },
         }
+
+        local function opts(description)
+            return { desc = description, noremap = true, silent = true }
+        end
+        -- Nvim-telescope keymap
+        vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>", opts("Telescope find file"))
+        vim.keymap.set('n', '<leader>fb', ":Telescope buffers initial_mode=normal<CR>", opts("Telescope buffers"))
+        vim.keymap.set('n', '<leader>fl', ":Telescope live_grep<CR>", opts("Telescope live grep"))
+        vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", opts("Telescope help tags"))
+        vim.keymap.set('n', '<leader>fk', ":Telescope keymaps initial_mode=normal<CR>", opts("Telescope show keymaps"))
+        vim.keymap.set('n', '<leader>fm', ":Telescope marks initial_mode=normal<CR>", opts("Telescope show marks"))
+        vim.keymap.set('n', '<leader>fo', ":Telescope oldfiles initial_mode=normal<CR>", opts("Telescope show old files"))
     end
 }
 

@@ -11,23 +11,29 @@ local function spec(path)
 end
 
 --===== Plugins =====
+spec("alpha_nvim")
 spec("catppuccin-theme")
 spec("cmp")
 spec("colorizer")
-spec("nvim_tree") 
+spec("comment")
 spec("lua_line")
---spec("feline")  -- require Neovim 0.9+
 spec("telescope")
-spec("terminal")
 spec("treesitter")
 spec("which_key")
-spec("oil_nvim")
-spec("alpha_nvim")
 
 spec("lsp.mason")
 spec("lsp.nvim_lsp")
 
--- TODO: add cheatsheet.nvim
+spec("my_plugin")
+
+
+--===== Unused plugins =====
+-- spec("nvim_tree") 
+-- spec("oil_nvim")
+-- spec("terminal")
+--spec("feline")  -- require Neovim 0.9+
+-- spec("quickfix-highlight")
+-- spec("compilation_mode")
 
 
 -- Return to lazynvim.lua

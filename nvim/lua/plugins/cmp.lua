@@ -6,6 +6,7 @@ local nvim_cmp = {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
+        "hrsh7th/cmp-nvim-lua",
     },
 
     config = function()
@@ -76,6 +77,7 @@ local nvim_cmp = {
                 { name = 'path' },
                 { name = "buffer" },
                 -- { name = "cmdline" },
+                { name = "nvim_lua" },
             },
 
             snippet = {
@@ -116,6 +118,14 @@ local nvim_cmp = {
             --     -- else call/return cmp.close(), which returns false
             --     return not disabled[cmd] or cmp.close()
             -- end
+        })
+
+        -- Use cmdline & path source for '@', used in vim.ui.input()
+        cmp.setup.cmdline('@', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'path' },
+            }
         })
     end
 }

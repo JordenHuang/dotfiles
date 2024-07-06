@@ -71,7 +71,8 @@ local nvim_tree = {
                     api.tree.change_root(last_buf_dir)
                 end
 
-                -- default mappings
+
+                -- default mappings when on attach
                 -- api.config.mappings.default_on_attach(bufnr)
                 vim.keymap.set('n', 'd', change_root_to_global_cwd, opts('Change Root To Global CWD'))
                 vim.keymap.set('n', 'b', change_root_to_current_buffer_dir, opts('Change Root To current buffer dir'))
@@ -79,11 +80,12 @@ local nvim_tree = {
                 vim.keymap.set('n', "<CR>",           function() cr_behavior(api.tree.get_node_under_cursor()) end,         opts("Open and close nvim-tree"))
                 vim.keymap.set('n', 'o',              api.node.open.edit,         opts("Open"))
                 vim.keymap.set('n', "<Tab>",          api.node.open.preview,      opts("Open preview"))
+                vim.keymap.set('n', "s",              api.node.open.horizontal,   opts("Open horizontal"))
                 vim.keymap.set('n', "v",              api.node.open.vertical,     opts("Open vertical"))
                 vim.keymap.set('n', "t",              api.node.open.tab,          opts("Open in new tab"))
                 vim.keymap.set('n', 'c',              api.tree.collapse_all,      opts("Collapse"))
                 vim.keymap.set('n', 'y',              api.fs.copy.filename,       opts("Copy File Name"))
-                vim.keymap.set('n', 'r',              api.tree.reload,            opts("Show node info"))
+                vim.keymap.set('n', 'r',              api.tree.reload,            opts("Reload"))
                 vim.keymap.set('n', 'i',              function() api.node.show_info_popup() info(api.tree.get_node_under_cursor()) end,   opts("Show node info"))
                 vim.keymap.set('n', '<',              api.tree.change_root_to_parent,       opts("Up"))
                 vim.keymap.set('n', 'h',              api.tree.change_root_to_parent,       opts("Up"))
@@ -102,6 +104,13 @@ local nvim_tree = {
                 vim.keymap.set('n', '<2-RightMouse>', api.node.open.edit,         opts("CD"))
             end
         }
+
+
+        -- Nvim-tree keymap
+        local function opts(desc)
+            return { desc = "nvim-tree: " .. desc, noremap = true, silent = true, nowait = true }
+        end
+        vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Open nvim-tree"))
     end,
 }
 
