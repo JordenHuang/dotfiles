@@ -1,0 +1,9 @@
+copy X11/Xresources to ~/.Xresources (remember the dot)
+
+copy the i3/ and i3status/ directory from dotfiles/ to ~/.config/
+
+TODO:
+- sddm theme
+- check volume, brightness control
+- screenshot tool
+- alacritty theme
