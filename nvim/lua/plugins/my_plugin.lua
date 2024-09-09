@@ -11,7 +11,7 @@ local file_manager = {
             keymaps = {
                 ["<CR>"] = "open",
                 ["o"] = "open",
-                ["v"] = "open_split",
+                ["O"] = "open_split",
                 ["-"] = "parent_dir",
                 ["T"] = "touch",
                 ["+"] = "mkdir",
@@ -42,6 +42,7 @@ local compilation_mode = {
         require('como').setup({
             show_last_cmd = true,
             auto_scroll = true,
+            preferred_win_pos = "bottom",
             custom_matchers = {
                 my = {
                     pattern = "(%S+)-(%d+)-(%d+)-(%S+)-(.+)",

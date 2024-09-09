@@ -13,7 +13,7 @@ end
 --===== Plugins =====
 spec("alpha_nvim")
 spec("catppuccin-theme")
-spec("cmp")
+spec("cmp") -- Why it create 2 empty buffers when starting neovim
 spec("colorizer")
 spec("comment")
 spec("lua_line")

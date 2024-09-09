@@ -36,7 +36,6 @@ local nvim_cmp = {
                             fallback()
                         end
                     end,
-
                     c = function()
                         if cmp.visible() then
                             cmp.close()
@@ -73,10 +72,23 @@ local nvim_cmp = {
             }),
 
             sources = {
+                {
+                    name = 'buffer',
+                    option = {
+                        get_bufnrs = function()
+                            -- USE SOURCES IN ALL OPENED BUFFERS
+                            return vim.api.nvim_list_bufs()
+                            -- USE SOURCES ONLY IN OPENED WINDOWS
+                            -- local bufs = {}
+                            -- for _, win in ipairs(vim.api.nvim_list_wins()) do
+                            --     bufs[vim.api.nvim_win_get_buf(win)] = true
+                            -- end
+                            -- return vim.tbl_keys(bufs)
+                        end
+                    }
+                },
                 { name = 'nvim_lsp' },
                 { name = 'path' },
-                { name = "buffer" },
-                -- { name = "cmdline" },
                 { name = "nvim_lua" },
             },
 
@@ -98,6 +110,10 @@ local nvim_cmp = {
         -- Use cmdline & path source for ':'.
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
+            -- mapping = cmp.mapping.preset.cmdline({
+            --     ["<C-n>"] = cmp.mapping({ c = function(fallback) fallback() end }),
+            --     ["<C-p>"] = cmp.mapping({ c = function(fallback) fallback() end }),
+            -- }),
             sources = cmp.config.sources(
                 {
                     { name = 'path' }

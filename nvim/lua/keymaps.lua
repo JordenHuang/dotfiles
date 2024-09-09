@@ -23,6 +23,9 @@ vim.g.mapleader = ","
 -- clear search highlight (<CR> means carriage return)
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", opts("Clear search highlight"))
 
+-- Show buffer names to quick jump to it
+vim.keymap.set("n", "<leader>b", ":buffer <C-d>", { desc="Show buffer names", noremap=true, silent=false })
+
 -- Quick exit INSERT mode
 vim.keymap.set("i", "kj", "<Esc>", opts("Exit insert mode"))
 
@@ -57,9 +60,23 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", opts("Save file"))
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("Close tab"))
 
 -- Tab and Shift-Tab indent and unindent
--- vim.keymap.set("n", "<leader><Tab>", ">>", opts("Indent, normal mode"))
--- vim.keymap.set("n", "<leader><S-Tab>", "<<", opts("Unindent, normal mode"))
-vim.keymap.set("v", "<Tab>", ">", opts("Indent, visual mode"))
-vim.keymap.set("v", "<S-Tab>", "<", opts("Unindent, visual mode"))
+vim.keymap.set("v", "<Tab>", ">gv", opts("Indent, visual mode"))
+vim.keymap.set("v", "<S-Tab>", "<gv", opts("Unindent, visual mode"))
 
+-- Insert mode navigation
+vim.keymap.set("i", "<C-h>", "<C-o>h", opts("Move cursor to left in insert mode"))
+vim.keymap.set("i", "<C-j>", "<C-o>j", opts("Move cursor to down in insert mode"))
+vim.keymap.set("i", "<C-k>", "<C-o>k", opts("Move cursor to up in insert mode"))
+vim.keymap.set("i", "<C-l>", "<C-o>l", opts("Move cursor to right in insert mode"))
+
+-- Command mode navigation
+vim.cmd('cnoremap <C-h> <Left>')
+vim.cmd('cnoremap <C-j> <Down>')
+vim.cmd('cnoremap <C-k> <Up>')
+vim.cmd('cnoremap <C-l> <Right>')
+
+-- Terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts("leave terminal mode"))
+vim.keymap.set("t", "kj", "<C-\\><C-n>",    opts("leave terminal mode"))
+vim.keymap.set("t", "<leader>w", "<C-\\><C-n><C-w><C-w>",    opts("navigation of windows"))
 

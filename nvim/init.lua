@@ -11,12 +11,6 @@ require("lazynvim")
 require("my_scripts.utils").setup()
 -- require("my_scripts.qftf-custom")
 
--- vim.cmd("edit .")
-
-
--- require("my_scripts.test").setup()
--- require("my_scripts.test2").setup()
--- require("my_scripts.test3").setup()
 
 -- my_func = function (cmd)
 --     local output = vim.fn.system(cmd)
