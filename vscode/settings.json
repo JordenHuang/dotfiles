@@ -18,7 +18,7 @@
     "vim.useSystemClipboard": true,
     "vim.smartRelativeLine": false,
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#a9dc7660",
+    "vim.highlightedyank.color": "#ADD6FF80", //"#a9dc7660",
     "vim.highlightedyank.duration": 350,
     "vim.hlsearch": true,
     "vim.leader": ",",
@@ -31,7 +31,6 @@
         "<C-s>": false,
         "<C-b>": false,
         "<C-f>": false,
-        "<C-w>": false,
     },
     "vim.insertModeKeyBindings": [
         {
@@ -112,11 +111,10 @@
         "powershell": ".ps1",
         "typescript": ".ts"
     },
-    "terminal.integrated.tabFocusMode": false,
     "terminal.integrated.defaultProfile.linux": "",
     "code-runner.runInTerminal": true,
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
@@ -127,13 +125,16 @@
     },
     "markdown-pdf.breaks": true,
     "markdown-pdf.displayHeaderFooter": false,
+    "markdown-pdf.stylesRelativePathFile": true,
+    "markdown-pdf.styles": [
+        // "../github_css_style.css",
+        "../my-misty-light-windows.css",
+        //"markdown-pdf.css",
+    ],
     "terminal.integrated.cursorStyleInactive": "none",
-    "redhat.telemetry.enabled": false,
     "terminal.integrated.scrollback": 10000,
-    "workbench.colorTheme": "Catppuccin Latte",
     "catppuccin.accentColor": "teal",
     "catppuccin.italicKeywords": false,
-    "catppuccin.italicComments": false,
     "catppuccin.workbenchMode": "default",
     "catppuccin.colorOverrides": {
         "latte": {
@@ -143,18 +144,18 @@
         }
     },
     "catppuccin.customUIColors": {
-        "all": {
-            "activityBar.background": "#3f3f3f",
-            "statusBar.background": "#007acc",
-            "statusBar.foreground": "#ffffff",
-            "minimap.background": "#ffffff",
-            "editorCursor.foreground": "#728FAB",
-            "statusBarItem.remoteBackground": "green",
-            "editor.lineHighlightBackground": "#ffffff",
-            "editor.lineHighlightBorder": "#f0f0f0",
+        "latte": {
+            // "activityBar.background": "#3f3f3f",
+            // "statusBar.background": "#007acc",
+            // "statusBar.foreground": "#ffffff",
+            // "minimap.background": "#ffffff",
+            // "editorCursor.foreground": "#3f3f3f",
+            // "statusBarItem.remoteBackground": "green",
+            // "editor.lineHighlightBackground": "#ffffff",
+            // "editor.lineHighlightBorder": "#f0f0f0",
             "input.background": "#fafafa",
             "selection.background": "#81a1c1",
-            "editor.selectionBackground": "#def1cb",
+            "editor.selectionBackground": "#add6ff",
             ///*
             "editorWarning.foreground": "#ff0000",
             "editorError.foreground": "#ff0000",
@@ -163,13 +164,69 @@
             "list.errorForeground": "#ff0000",
             "list.warningForeground": "#ff0000"
             //*/
+        },
+        "frappe": {
+            "editor.selectionBackground": "#4b739b",
         }
     },
-    "window.zoomLevel": 1,
     "editor.cursorBlinking": "solid",
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    // "files.autoSave": "afterDelay",
-    // "files.autoSaveDelay": 2000,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
+    "window.zoomLevel": 1,
+    "color-highlight.languages": [
+        "*"
+    ],
+    "catppuccin.italicComments": false,
+    "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    // set to false because there is a green dot in the terminal
+    "terminal.integrated.shellIntegration.enabled": false,
+    "editor.renderWhitespace": "trailing",
+    "git.autofetch": true,
+    "editor.wordWrap": "off",
+    "editor.stickyScroll.enabled": false,
+    "remote.SSH.remotePlatform": {
+        "140.134.53.57": "linux",
+        "dbserver": "linux"
+    },
+    "vhdl.formatter.case.keyword": "LowerCase",
+    "vhdl.formatter.case.typename": "LowerCase",
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Stroustrup, AllowShortIfStatementsOnASingleLine: true, IndentCaseLabels: true, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.activityBar.location": "top",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "color-highlight.markerType": "dot-after",
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "C_Cpp.clang_format_sortIncludes": false,
+    "C_Cpp.formatting": "vcFormat",
+    "C_Cpp.vcFormat.indent.preserveComments": true,
+    "C_Cpp.vcFormat.newLine.beforeElse": false,
+    "C_Cpp.doxygen.generatedStyle": "/**",
+    "workbench.colorTheme": "Catppuccin Latte",
 }
