@@ -8,11 +8,5 @@ require("keymaps")
 require("lazynvim")
 
 -- my scripts
-require("my_scripts.utils").setup()
--- require("my_scripts.qftf-custom")
+require("my_scripts.init").setup()
 
-
--- my_func = function (cmd)
---     local output = vim.fn.system(cmd)
---     print(output)
--- end

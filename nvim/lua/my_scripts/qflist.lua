@@ -1,9 +1,7 @@
 -- TODO: make a plugin that contains some useful
 -- quickfix list utils
-
 local M = {}
 
---===== Quickfix list =====
 M.qf_open = false
 M.last_command = ''
 
@@ -61,47 +59,6 @@ M.toggle_qf = function()
         print(":copen")
         vim.cmd "copen"
         M.qf_open = true
-    end
-end
---===== end Quickfix =====
-
--- ===== Theme =====
--- Set background
-M.set_background = function()
-    if vim.o.background == "light" then
-        vim.cmd "set background=dark"
-    elseif vim.o.background == "dark" then
-        vim.cmd "set background=light"
-    end
-    vim.cmd "2 sleep"
-end
--- ===== end Theme =====
-
-
-
--- Although it's called setup function, acctually it only adds some keymaps :P
-M.setup = function()
-    -- keymaps start with <leader>s, s means self, as this is my personal create functions
-    local function opts(description)
-        return { desc = description, noremap = true, silent = false }
-    end
-
-    if M.send_command ~= nil then
-        -- When pressing <leader>ss, execute the send_command function
-        vim.keymap.set("n", "<leader>sc", M.send_command, opts("Send command to cexpr"))
-    end
-
-    if M.exec_last_command ~= nil then
-        vim.keymap.set("n", "<leader>sr", M.exec_last_command, opts("Execute last command sended by send_command"))
-    end
-
-    if M.toggle_qf ~= nil then
-        vim.keymap.set("n", "<leader>sf", M.toggle_qf, opts("Toggle quickfix list"))
-    end
-    -- TODO: add cnext, cprev keybind
-
-    if M.set_background ~= nil then
-        vim.keymap.set("n", "<leader>sb", M.set_background, opts("Set background"))
     end
 end
 

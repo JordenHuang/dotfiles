@@ -10,8 +10,8 @@ set shiftwidth=4
 set autoindent
 
 set cursorline
-set listchars=tab:>\ ,trail:·,nbsp:+
 set list
+set listchars=tab:>\ ,trail:·,nbsp:+
 
 set nowrap
 set scrolloff=3

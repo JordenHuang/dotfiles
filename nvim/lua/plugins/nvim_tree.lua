@@ -17,7 +17,7 @@ local nvim_tree = {
                 -- my own function
                 local function info(t)
                     -- filewrite = io.open("tempfile.txt", "a")
-                    for k, v in pairs(t) do
+                    for _, v in pairs(t) do
                         if v then
                             -- print(string.format("%s: %s  ", k, v))
                             -- filewrite:write(string.format("%s: %s\n", k, v))
@@ -29,7 +29,7 @@ local nvim_tree = {
                 end
 
                 local function cr_behavior(t)
-                    if t['type'] == 'file' then 
+                    if t['type'] == 'file' then
                         api.node.open.edit()
                         api.tree.close()
                     else
@@ -38,23 +38,27 @@ local nvim_tree = {
                 end
 
                 local function change_root_to_global_cwd()
-                    local api = require("nvim-tree.api")
                     local global_cwd = vim.fn.getcwd(-1, -1)
                     print(global_cwd)
                     api.tree.change_root(global_cwd)
                 end
 
                 local function change_root_to_current_buffer_dir()
-                    local api = require("nvim-tree.api")
-                    local last_buf = 0, last_buf_nr
+                    local lastused_buf_time_stamp = 0
+                    local lastused_buf_nr = -1
                     local tree_buf = vim.fn.bufnr('%')
-                    
-                    for i, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-                        local current = vim.fn.getbufinfo(bufnr)[1].lastused
-                        if last_buf < current and bufnr ~= tree_buf then
-                            last_buf = current
-                            last_buf_nr = bufnr
+
+                    for _, buf_nr in ipairs(vim.api.nvim_list_bufs()) do
+                        local cur_time_stamp = vim.fn.getbufinfo(buf_nr)[1].lastused
+                        -- Find the biggest time stamp -> most recently used buffer
+                        if lastused_buf_time_stamp < cur_time_stamp and buf_nr ~= tree_buf then
+                            lastused_buf_time_stamp = cur_time_stamp
+                            lastused_buf_nr = buf_nr
                         end
+                    end
+                    if lastused_buf_nr == -1 then
+                        print("No last used buffer")
+                        return
                     end
 
                     --for i, v in ipairs(vim.fn.getbufinfo(last_buf_nr)) do
@@ -62,8 +66,8 @@ local nvim_tree = {
                     --        print(j, k)
                     --    end
                     --end
-                    local last_buf_path = vim.fn.getbufinfo(last_buf_nr)[1].name
-                    local a, b, c = string.match(last_buf_path, "(.-)([^\\/]-%.?([^%.\\/]*))$")
+                    local last_buf_path = vim.fn.getbufinfo(lastused_buf_nr)[1].name
+                    -- local a, b, c = string.match(last_buf_path, "(.-)([^\\/]-%.?([^%.\\/]*))$")
                     local last_buf_dir = string.match(last_buf_path, "(.-)[^\\/]-$")
                     --print(last_buf_path)
                     --print(a, b, c)
