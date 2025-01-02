@@ -1,5 +1,6 @@
 local nvim_treesitter = {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.9.2",
     build = ":TSUpdate",
     config = function ()
         local install = require("nvim-treesitter.install")
@@ -9,8 +10,8 @@ local nvim_treesitter = {
 
         configs.setup({
             ensure_installed = {
-                "c", "lua", "vim", "vimdoc", "javascript", "html",
-                "python", "cpp", "markdown", "yaml", "toml", "bash"
+                "c", "lua", "vim", "vimdoc", "query",
+                "javascript", "html", "python", "cpp", "markdown", "yaml", "toml", "bash"
             },
         sync_install = false,
         highlight = { enable = true },
