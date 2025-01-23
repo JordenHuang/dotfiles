@@ -19,7 +19,7 @@ vim.opt.list = true
 --]])
 
 vim.opt.wrap = false
-vim.opt.scrolloff = 3
+-- vim.opt.scrolloff = 3
 
 vim.opt.mouse = "a"
 

@@ -8,6 +8,7 @@
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   operator_pending_mode = "o",
 
 
 -- opts set in a table to not repeat them everytime
@@ -64,16 +65,16 @@ vim.keymap.set("v", "<Tab>", ">gv", opts("Indent, visual mode"))
 vim.keymap.set("v", "<S-Tab>", "<gv", opts("Unindent, visual mode"))
 
 -- Insert mode navigation
-vim.keymap.set("i", "<C-h>", "<C-o>h", opts("Move cursor to left in insert mode"))
-vim.keymap.set("i", "<C-j>", "<C-o>j", opts("Move cursor to down in insert mode"))
-vim.keymap.set("i", "<C-k>", "<C-o>k", opts("Move cursor to up in insert mode"))
-vim.keymap.set("i", "<C-l>", "<C-o>l", opts("Move cursor to right in insert mode"))
+-- vim.keymap.set("i", "<C-h>", "<C-o>h", opts("Move cursor to left in insert mode"))
+-- vim.keymap.set("i", "<C-j>", "<C-o>j", opts("Move cursor to down in insert mode"))
+-- vim.keymap.set("i", "<C-k>", "<C-o>k", opts("Move cursor to up in insert mode"))
+-- vim.keymap.set("i", "<C-l>", "<C-o>l", opts("Move cursor to right in insert mode"))
 
 -- Command mode navigation
-vim.cmd('cnoremap <C-h> <Left>')
-vim.cmd('cnoremap <C-j> <Down>')
-vim.cmd('cnoremap <C-k> <Up>')
-vim.cmd('cnoremap <C-l> <Right>')
+-- vim.cmd('cnoremap <C-h> <Left>')
+-- vim.cmd('cnoremap <C-j> <Down>')
+-- vim.cmd('cnoremap <C-k> <Up>')
+-- vim.cmd('cnoremap <C-l> <Right>')
 
 -- Terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts("leave terminal mode"))
