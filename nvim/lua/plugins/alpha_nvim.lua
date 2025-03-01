@@ -60,7 +60,7 @@ function M.config()
     dashboard.section.buttons.val = {
         dashboard.button("n", "  New file",          "<cmd>enew<CR>"),
         dashboard.button("f", "󰱼  Find files",        "<cmd>Telescope find_files<CR>"),
-        dashboard.button("g", "󰷾  Find text",         ":Telescope live_grep <CR>"),
+        dashboard.button("g", "󰷾  Find text",         ":Telescope live_grep<CR>"),
         dashboard.button("r", "  Find recent files", "<cmd>Telescope oldfiles<CR>"),
         dashboard.button("l", "󰒲  Lazy panel",        ":Lazy<CR>"),
         dashboard.button("q", "  Quit",              "<cmd>qa<CR>"),

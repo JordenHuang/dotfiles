@@ -25,7 +25,9 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", opts("Clear search highlight"))
 
 -- Show buffer names to quick jump to it
-vim.keymap.set("n", "<leader>b", ":buffer <C-d>", { desc="Show buffer names", noremap=true, silent=false })
+vim.keymap.set("n", "<leader>bb", ":buffer <C-d>", { desc="Show buffer names", noremap=true, silent=false })
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>",     { desc="Go to next buffer", noremap=true, silent=false })
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc="Go to prev buffer", noremap=true, silent=false })
 
 -- Quick exit INSERT mode
 vim.keymap.set("i", "kj", "<Esc>", opts("Exit insert mode"))
@@ -63,6 +65,10 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts("Close tab"))
 -- Tab and Shift-Tab indent and unindent
 vim.keymap.set("v", "<Tab>", ">gv", opts("Indent, visual mode"))
 vim.keymap.set("v", "<S-Tab>", "<gv", opts("Unindent, visual mode"))
+
+vim.keymap.set('n', "gp", "`[v`]", opts("Select last paste text"))
+vim.keymap.set('n', "<leader>cw", "*``cgn", opts("Change text"))
+vim.keymap.set('v', "<leader>cw", 'y/<C-R>"<CR>``cgn', opts("Change selected text"))
 
 -- Insert mode navigation
 -- vim.keymap.set("i", "<C-h>", "<C-o>h", opts("Move cursor to left in insert mode"))

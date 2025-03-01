@@ -62,4 +62,17 @@ M.toggle_qf = function()
     end
 end
 
+-- TODO: Think how to use this function
+local function To_qf()
+    -- local bufnr = vim.api.nvim_get_current_buf()
+    local row = vim.api.nvim_win_get_cursor(0)[1]
+    -- vim.print(vim.api.nvim_buf_get_lines(0, row-1, -1, true))
+    local lines = {}
+    lines['lines'] = vim.api.nvim_buf_get_lines(0, row-1, -1, true)
+    vim.fn.setqflist({}, 'r', lines)
+    -- for k, v in pairs(vim.api.nvim_buf_get_lines(0, row-1, -1, true)) do
+    --     print(k, v)
+    -- end
+end
+
 return M

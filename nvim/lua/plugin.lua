@@ -13,24 +13,24 @@ end
 --===== Plugins =====
 spec("alpha_nvim")
 spec("catppuccin-theme")
-spec("cmp")
 spec("colorizer")
 spec("comment")
 spec("lua_line")
 spec("nvim_tree")
+spec("oil_nvim")
 spec("telescope")
 spec("treesitter")
+spec("todo_highlight")
 spec("which_key")
 
-spec("lsp.mason")
-spec("lsp.nvim_lsp")
+-- Language server
+-- spec("lsp.mason")
+-- spec("lsp.nvim_lsp")
 
 spec("como")
-spec("todo_highlight")
-
 
 --===== Unused plugins =====
--- spec("oil_nvim")
+-- spec("cmp")
 
 -- Return to lazynvim.lua
 return M

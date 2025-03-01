@@ -18,8 +18,7 @@ vim.opt.list = true
 --    set list
 --]])
 
-vim.opt.wrap = false
--- vim.opt.scrolloff = 3
+vim.opt.wrap = true
 
 vim.opt.mouse = "a"
 
@@ -31,7 +30,8 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.virtualedit = "block"
 
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+-- vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone" }
 
 vim.opt.inccommand = "split"
 

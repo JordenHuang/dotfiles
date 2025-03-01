@@ -4,6 +4,7 @@
 -- - [x] A word movement like emacs, for alt-f and alt-b
 -- - [No] yank, but preserve cursor position, see https://nanotipsforvim.prose.sh/sticky-yank
 -- - [x] Duplicate line with cursor position preserved, like vscode <alt-arrowdown>
+-- - [ ] Create a opts function here, and use this one on the other files
 --]]
 
 local M = {}
@@ -26,6 +27,10 @@ local function dup_line()
     local cursor = vim.api.nvim_win_get_cursor(0)
     vim.cmd('normal! Yp')
     vim.api.nvim_win_set_cursor(0, {cursor[1]+1, cursor[2]})
+end
+
+local function find_file()
+    return vim.fn.feedkeys(":e "..vim.fn.expand("%:p:h").."/")
 end
 
 
@@ -52,7 +57,8 @@ M.setup = function()
     -- Replace all the ^M (try to type <ctrl-q> + <enter>)
     vim.keymap.set("n", "<leader>sr", ":%s/\\r//g<CR>", opts("Replace all the ^M"))
 
-    vim.keymap.set("n", "<leader>se", ":e "..vim.uv.cwd(), opts("Find files"))
+    -- Find file
+    vim.keymap.set("n", "<leader>se", find_file, opts("Find files"))
 
     -- Emacs like word navigation
     vim.keymap.set({'n', 'v', 'o'}, "<A-f>", function() return M.subword.process_move('f') end, opts("Subword forward"))

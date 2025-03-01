@@ -4,6 +4,7 @@ end
 
 local compilation_mode = {
     'JordenHuang/como.nvim',
+    -- dir = '~/mnvp/neovim_and_lua/como.nvim/',
     config = function()
         require('como').setup({
             show_last_cmd = true,

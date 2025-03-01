@@ -22,6 +22,7 @@
     "vim.highlightedyank.duration": 350,
     "vim.hlsearch": true,
     "vim.leader": ",",
+    "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
         "<C-c>": false,
         "<C-v>": false,
@@ -185,7 +186,7 @@
     "terminal.integrated.shellIntegration.enabled": false,
     "editor.renderWhitespace": "trailing",
     "git.autofetch": true,
-    "editor.wordWrap": "off",
+    "editor.wordWrap": "on",
     "editor.stickyScroll.enabled": false,
     "remote.SSH.remotePlatform": {
         "140.134.53.57": "linux",
@@ -228,5 +229,7 @@
     "C_Cpp.vcFormat.indent.preserveComments": true,
     "C_Cpp.vcFormat.newLine.beforeElse": false,
     "C_Cpp.doxygen.generatedStyle": "/**",
-    "workbench.colorTheme": "Catppuccin Latte",
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "chat.commandCenter.enabled": false,
+    "r.alwaysUseActiveTerminal": true,
 }
