@@ -19,6 +19,7 @@ vim.opt.list = true
 --]])
 
 vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.opt.mouse = "a"
 
