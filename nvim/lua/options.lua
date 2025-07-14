@@ -9,6 +9,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 
+vim.opt.textwidth = 78
+
 vim.opt.cursorline = true
 
 vim.opt.listchars = { tab = "> ", trail = "·", nbsp = "+" }
@@ -32,11 +34,11 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.virtualedit = "block"
 
 -- vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.completeopt = { "menu", "menuone" }
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "preview" }
 
 vim.opt.inccommand = "split"
 
-vim.opt.ignorecase = true
+vim.opt.ignorecase = false
 
 vim.opt.termguicolors = true
 

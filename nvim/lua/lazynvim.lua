@@ -21,7 +21,7 @@ local lazy_nvim_config = {
         -- install missing plugins on startup. This doesn't increase startup time.
         missing = true,
         -- try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "catppuccin", "desert"},
+        colorscheme = { "catppuccin", "desert" },
     },
     ui = {
         border = "rounded",

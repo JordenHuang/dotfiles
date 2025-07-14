@@ -10,3 +10,9 @@ require("lazynvim")
 -- my scripts
 require("my_scripts.init").setup()
 
+--[[
+
+- multicursor
+- align text regex
+
+--]]

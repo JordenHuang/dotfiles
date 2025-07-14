@@ -71,12 +71,16 @@ vim.keymap.set('n', "<leader>cw", "*``cgn", opts("Change text"))
 vim.keymap.set('v', "<leader>cw", 'y/<C-R>"<CR>``cgn', opts("Change selected text"))
 
 -- Insert mode navigation
+vim.keymap.set("i", "<C-a>", "<C-o>0<C-o>i", opts("Move cursor to beginning of the line in insert mode"))
+vim.keymap.set("i", "<C-e>", "<C-o>A", opts("Move cursor to end of the line in insert mode"))
 -- vim.keymap.set("i", "<C-h>", "<C-o>h", opts("Move cursor to left in insert mode"))
 -- vim.keymap.set("i", "<C-j>", "<C-o>j", opts("Move cursor to down in insert mode"))
 -- vim.keymap.set("i", "<C-k>", "<C-o>k", opts("Move cursor to up in insert mode"))
 -- vim.keymap.set("i", "<C-l>", "<C-o>l", opts("Move cursor to right in insert mode"))
 
 -- Command mode navigation
+vim.cmd('cnoremap <C-a> <Home>')
+vim.cmd('cnoremap <C-e> <End>')
 -- vim.cmd('cnoremap <C-h> <Left>')
 -- vim.cmd('cnoremap <C-j> <Down>')
 -- vim.cmd('cnoremap <C-k> <Up>')

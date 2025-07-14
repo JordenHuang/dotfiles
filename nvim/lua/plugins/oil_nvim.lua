@@ -130,7 +130,7 @@ local oil = {
                 ["g."] = { "actions.toggle_hidden", mode = "n" },
                 ["g\\"] = { "actions.toggle_trash", mode = "n" },
 
-                ["o"] = "actions.select",
+                ["f"] = "actions.select",
             },
             -- Set to false to disable all of the above keymaps
             use_default_keymaps = true,
