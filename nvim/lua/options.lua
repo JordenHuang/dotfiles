@@ -9,8 +9,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 
-vim.opt.textwidth = 78
-
 vim.opt.cursorline = true
 
 vim.opt.listchars = { tab = "> ", trail = "·", nbsp = "+" }
@@ -23,6 +21,11 @@ vim.opt.list = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
+-- Like emacs ctrl-l scroll
+vim.opt.scrolljump = -50
+
+vim.opt.signcolumn = "yes"
+
 vim.opt.mouse = "a"
 
 -- vim.opt.splitbelow = true
@@ -34,7 +37,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.virtualedit = "block"
 
 -- vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "preview" }
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "preview" }
 
 vim.opt.inccommand = "split"
 
@@ -43,9 +46,7 @@ vim.opt.ignorecase = false
 vim.opt.termguicolors = true
 
 
--- Try below in Linux
--- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20"
--- Use below in Windows
+-- Cursor shape
 vim.opt.guicursor = "n-v-c-i-sm:block,i-ci-ve:blinkwait700-blinkoff400-blinkon250,r-cr-o:hor20"
 
 

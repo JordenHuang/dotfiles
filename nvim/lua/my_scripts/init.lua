@@ -10,7 +10,7 @@
 local M = {}
 
 M.qf = require('my_scripts.qflist')
-M.term = require('my_scripts.terminal')
+M.term = require('my_scripts.terminal_float')
 M.subword = require('my_scripts.subword')
 
 -- Set background
@@ -50,7 +50,7 @@ M.setup = function()
     vim.keymap.set("n", "<leader>sn", ":cnext<CR>", opts("Toggle quickfix list"))
     vim.keymap.set("n", "<leader>sp", ":cprev<CR>", opts("Toggle quickfix list"))
 
-    vim.keymap.set("n", "<leader>sb", M.set_background, opts("Set background"))
+    -- vim.keymap.set("n", "<leader>sb", M.set_background, opts("Set background"))
 
     vim.keymap.set("n", "<leader>st", M.term.toggle_floating_terminal, opts("Toggle floating terminal"))
 

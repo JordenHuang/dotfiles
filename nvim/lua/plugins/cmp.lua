@@ -12,30 +12,31 @@ local nvim_cmp = {
     config = function()
         local cmp = require("cmp")
         local confirm_opts = {
-            select = true,
+            select = false, -- Don't automatically select the first item when there's no selection by the user
             behavior = cmp.ConfirmBehavior.Insert,
         }
+
         cmp.setup({
+            completion = {
+                -- Disable automatically activating
+                autocomplete = false,
+            },
+            window = {
+                completion = { -- rounded border; thin-style scrollbar
+                    border = 'rounded',
+                    scrollbar = '║',
+                },
+                documentation = { -- no border; native-style scrollbar
+                    border = nil,
+                    scrollbar = '',
+                },
+            },
             mapping = cmp.mapping.preset.insert({
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<Tab>"] = cmp.mapping({
-                    i = cmp.mapping.select_next_item(),
-                    c = cmp.mapping.select_next_item(),
-                }),
-                ["<S-Tab>"] = cmp.mapping({
-                    i = cmp.mapping.select_prev_item(),
-                    c = cmp.mapping.select_prev_item(),
-                }),
+                ["<C-d>"] = cmp.mapping.scroll_docs(4),
+                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                ["<Tab>"] = cmp.mapping.select_next_item(),
+                ["<S-Tab>"] = cmp.mapping.select_prev_item(),
                 ["<Esc>"] = cmp.mapping({
-                    i = function(fallback)
-                        local entry = cmp.get_active_entry()
-                        if cmp.visible() and entry ~= nil then
-                            cmp.abort()
-                        else 
-                            fallback()
-                        end
-                    end,
                     c = function()
                         if cmp.visible() then
                             cmp.close()
@@ -44,31 +45,25 @@ local nvim_cmp = {
                         end
                     end
                 }),
-                ['<CR>'] = cmp.mapping({
-                    i = function(fallback)
-                        local entry = cmp.get_active_entry()
-                        -- local entries = cmp.get_entries()
-                        if cmp.visible() and entry ~= nil then
-                            cmp.confirm(confirm_opts)
-                        else
-                            fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
-                        end
-                    end,
-                    c = function(fallback)
-                        local entry = cmp.get_active_entry()
-                        -- print(entry)
-                        if cmp.visible() and entry ~= nil then
-                            cmp.confirm(confirm_opts)
-                        else
-                            fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
-                        end
-                    end,
-                }),
 
-                -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                -- ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-                -- ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                ['<CR>'] = function(fallback)
+                    if cmp.visible() then
+                        cmp.confirm()
+                    else
+                        fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
+                    end
+                end,
+
+                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({
+                    reason = cmp.ContextReason.Auto,
+                }), { "i" }),
+
+                ['<C-l>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        return cmp.complete_common_string()
+                    end
+                    fallback()
+                end, { 'i', 'c' }),
             }),
 
             sources = {
@@ -91,7 +86,6 @@ local nvim_cmp = {
                 { name = 'path' },
                 { name = "nvim_lua" },
             },
-
             snippet = {
                 expand = function(args)
                     require('luasnip').lsp_expand(args.body)
@@ -145,7 +139,6 @@ local nvim_cmp = {
         })
     end
 }
-
 
 return {
     nvim_cmp

@@ -4,7 +4,7 @@ local function spec(path)
     path = "plugins." .. path
     local status, plugin = pcall(require, path)
     if not status then
-        print(string.format("Some ERROR occurs, plugin: %s", plugin))
+        print(string.format("[ERROR] plugin: %s", plugin))
     else
         table.insert(M, plugin)
     end
@@ -13,15 +13,16 @@ end
 --===== Plugins =====
 spec("alpha_nvim")
 spec("catppuccin-theme")
+spec("cmp")
 spec("colorizer")
 spec("comment")
+spec("fzf_lua")
 spec("lua_line")
 spec("nvim_tree")
-spec("oil_nvim")
-spec("telescope")
-spec("treesitter")
 spec("todo_highlight")
+spec("treesitter")
 spec("which_key")
+spec("yazi")
 
 -- Language server
 -- spec("lsp.mason")
@@ -30,7 +31,8 @@ spec("which_key")
 spec("como")
 
 --===== Unused plugins =====
--- spec("cmp")
+-- spec("oil_nvim")
+-- spec("telescope")
 
 -- Return to lazynvim.lua
 return M

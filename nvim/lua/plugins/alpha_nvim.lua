@@ -1,25 +1,23 @@
 local function getGreeting(name)
     local tableTime = os.date("*t")
     local hour = tableTime.hour
-    local datetime = " " .. os.date("%Y-%m-%d  ") .. " " .. os.date("%H:%M:%S")
-    local greetingsTable = {
-        [1] = " Sleep well",
-        [2] = " Good morning",
-        [3] = " Good afternoon",
-        [4] = " Good evening",
-        [5] = "󰖔 Good night",
-    }
+    local datetime = " " .. os.date("%Y-%m-%d  ") .. " " .. os.date("%H:%M")
     local greetingIndex = 0
-    if hour == 23 or hour < 7 then
+    local greetingsTable = {
+        [1] = " Good morning",
+        [2] = " Good afternoon",
+        [3] = " Good evening",
+        [4] = "󰖔 Good night",
+    }
+
+    if hour >= 5 and hour < 12 then
         greetingIndex = 1
-    elseif hour < 12 then
-        greetingIndex = 2
     elseif hour >= 12 and hour < 18 then
-        greetingIndex = 3
+        greetingIndex = 2
     elseif hour >= 18 and hour < 21 then
+        greetingIndex = 3
+    else
         greetingIndex = 4
-    elseif hour >= 21 then
-        greetingIndex = 5
     end
     return " " .. datetime .. "  " .. greetingsTable[greetingIndex] .. ", " .. name
 end
@@ -47,7 +45,7 @@ function M.config()
         "                                                    ",
     }
 
-    local user_name = "Yueyo"
+    local user_name = "Qinuo"
     local greeting_section = {
         type = "text",
         val = getGreeting(user_name),
@@ -57,13 +55,33 @@ function M.config()
         }
     }
 
+    local function ask_path()
+        local cwd = vim.fn.expand("%:p:h").."/"
+        vim.ui.input(
+            { prompt = "Search path: ", default = cwd, completion = "file"},
+            function(cmd)
+                if cmd == nil or cmd == '' then
+                    return
+                else
+                    vim.cmd(":FzfLua files cwd=" .. cmd)
+                end
+            end
+        )
+    end
+
     dashboard.section.buttons.val = {
-        dashboard.button("n", "  New file",          "<cmd>enew<CR>"),
-        dashboard.button("f", "󰱼  Find files",        "<cmd>Telescope find_files<CR>"),
-        dashboard.button("g", "󰷾  Find text",         ":Telescope live_grep<CR>"),
-        dashboard.button("r", "  Find recent files", "<cmd>Telescope oldfiles<CR>"),
-        dashboard.button("l", "󰒲  Lazy panel",        ":Lazy<CR>"),
-        dashboard.button("q", "  Quit",              "<cmd>qa<CR>"),
+        dashboard.button("n", "  New file",           "<cmd>enew<CR>"),
+        dashboard.button("f", "󰱼  Find files",         "<cmd>FzfLua files<CR>"),
+        dashboard.button("F", "󰱼  Find files in path", ask_path),
+        dashboard.button("g", "󰷾  Find text",          "<cmd>FzfLua live_grep<CR>"),
+        dashboard.button("r", "  Find recent files",  "<cmd>FzfLua oldfiles<CR>"),
+        dashboard.button("y", "󰱼  Open Yazi",          "<cmd>Yazi cwd<CR>"),
+        dashboard.button("l", "󰒲  Lazy panel",         ":Lazy<CR>"),
+        dashboard.button("q", "  Quit",               "<cmd>qa<CR>"),
+        -- When using Telescope
+        -- dashboard.button("f", "󰱼  Find files",        "<cmd>Telescope find_files<CR>"),
+        -- dashboard.button("g", "󰷾  Find text",         ":Telescope live_grep<CR>"),
+        -- dashboard.button("r", "  Find recent files", "<cmd>Telescope oldfiles<CR>"),
     }
 
     -- set highlight
