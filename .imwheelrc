@@ -1,0 +1,5 @@
+".*"
+Control_L, Up,     Up
+Control_L, Down,   Down
+Shift_L,   Up,     Left
+Shift_L,   Down,   Right

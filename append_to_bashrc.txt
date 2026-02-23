@@ -1,0 +1,42 @@
+export EDITOR='nvim'
+
+# Starship
+eval "$(starship init bash)"
+
+# fzf
+# source /usr/share/doc/fzf/examples/key-bindings.bash
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#7dc4e4"
+export FZF_CTRL_T_OPTS="--preview 'batcat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fzf preview for tmux
+export FZF_TMUX_OPTS=" -p90%,70% "  
+
+# IME
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+# export GLFW_IM_MODULE=ibus
+
+# Rust programming language
+. "$HOME/.cargo/env"
+
+# Go programming language
+export PATH=$PATH:/usr/local/go/bin
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# # Window scaling
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# # Prompt start:
+# PROMPT_COMMAND='printf "\033]133;A\007"'
+# source ~/.config/wezterm-shell-integration.sh
+
